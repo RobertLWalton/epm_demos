@@ -2,7 +2,7 @@
 //
 // File:	generate-annual.cc
 // Authors:	Bob Walton (walton@deas.harvard.edu)
-// Date:	Mon Jul 13 04:09:01 EDT 2020
+// Date:	Mon Jul 13 05:22:39 EDT 2020
 //
 // The authors have placed this program in the public
 // domain; they make no warranty and accept no liability
@@ -109,7 +109,7 @@ char documentation [] =
 "generate-valuable [-doc]\n"
 "\n"
 "    Copies standard input to standard output,\n"
-"    removing lines the begin with `!!'.\n"
+"    removing lines that begin with `!!'.\n"
 "\n"
 "    Lines that begin with `!!##' are considered to\n"
 "    be comment lines.\n"
