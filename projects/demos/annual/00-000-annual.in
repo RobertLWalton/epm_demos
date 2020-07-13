@@ -1,0 +1,10 @@
+CONSTANT
+!!## Growth at 0.01%.
+!!## Rounding v values to 4 decimal places does not
+!!## change A(.,.) rounded to 2 decimal places.
+1990 1.0000
+1991 1.0001
+1992 1.0002
+1993 1.0003
+1994 1.0004
+1995 1.0005

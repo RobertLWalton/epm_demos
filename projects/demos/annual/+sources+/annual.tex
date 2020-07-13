@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+\usepackage{times}
+\begin{document}
+\newcommand{\problem}[1]{\underline{\Large \bf #1}}
+\renewcommand{\section}[1]{\bigskip\underline{\bf #1}\\}
+\newcommand{\header}[1]{\underline{\bf #1}}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{1ex}
+
+\problem{Annual Return}
+
+If you are considering investing in a mutual fund, you
+will look up the fund and find the average annual return
+of the fund for the last 1 year, the last 5 years, and
+the last 10 years.  However, these are surprisingly
+deceptive measures of fund performance.
+
+A much better measure is a matrix that gives the average
+annual return $A(y_b,y_s)$ for an investment in the
+fund bought in year $y_b$ and sold in year $y_s$, for
+all $y_{min}\le y_b\le y_s\le y_{max}$, where
+$y_{min}$ and $y_{max}$ are at least 20 years apart.
+This matrix answers questions of the form: if I bought
+in year $y_b$ and sold in year $y_s$, what would my
+average annual return be.
+
+From this you will find that there are some good years
+to buy and some bad years to buy, and some good years
+to sell and some bad years to sell.  But if the
+average annual return is good enough for you for most
+purchase years and most sell years, perhaps the fund
+is a good investment.
+
+You are being asked to compute such average annual
+return matrices.
+
+To compute $A(y_b,y_s)$ we need to know the value $v_b$
+of some investment in year $y_b$ and the value $v_s$ of the
+\underline{same} investment in year $y_s$.  Then $v_s/v_b$ is the
+total return as a ratio, and if $v_s/v_b=B^{(y_s-y_b)}$, then
+$B$ is the average annual return as a ratio.  But we
+do not want a ratio; we want a percentage.  So we compute
+$A(y_s,y_b)$ so that $B=1+A(y_s,y_b)/100$.
+
+\section{Input}
+The first line is a title line, that names the fund.
+It is at most 80 characters.
+
+After the title line there are $n\le 30$ lines, with the $i$'th
+line containing two numbers, $y_i$ and $v_i$ for
+$1\le i\le n$.  The $y_i$ are year numbers, and
+are integers, $0<y_i\le 9999$, such that $y_{i+1}=y_i+1$ for
+$1\le i<n$.  The $v_i$ are value numbers, and
+are floating point such that $0<v_i\le 1,000,000$.
+
+The value numbers are the value of some investment
+made in the fund before year $y_1$, assuming that
+once the investment was made no more money was ever
+put into the fund and no money was ever taken out.
+More specifically, any money made by the investment
+was automatically reinvested in the fund, which is
+a typical thing to do with mutual funds.
+
+Its not important how big the initial investment
+was or how long ago it was made, as the only thing
+we are interested in is ratios $v_j/v_i$ for
+$j>i$.
+
+Input ends with an end of file.
+
+
+\section{Output}
+First output the title line, exactly as it is in the
+input.
+
+Then output a matrix of $n$ rows each with $n$
+columns, with each row on one line, and each column
+taking exactly $6$ spaces.
+
+For the first row, its first column is blank, and the
+$k+1$'st column contains $y_k$ for $1\le k<n$.
+
+For the $j+1$'st row, $1\le j< n$,
+the first column contains $y_{j+1}$,
+and the $k+1$'st column contains $A(y_k,y_{j+1})$ for $1\le k\le j$.
+
+All numbers must be right adjusted in their $6$ space wide
+column.  The $A$ numbers must have exactly $2$ decimal places.
+
+
+
+\begin{center}
+\small
+\begin{tabular}{l|l}
+\begin{minipage}{1.0in}
+\small
+\header{Sample Input}
+\begin{verbatim}
+CONSTANT
+1990 1.0000
+1991 1.0001
+1992 1.0002
+1993 1.0003
+1994 1.0004
+1995 1.0005
+\end{verbatim}
+\end{minipage}\hspace*{0.1in}
+&
+\hspace*{0.1in}\begin{minipage}{3.5in}
+\small
+\header{Sample Output}
+\begin{verbatim}
+CONSTANT
+        1990  1991  1992  1993  1994
+  1991  0.01 
+  1992  0.01  0.01
+  1993  0.01  0.01  0.01
+  1994  0.01  0.01  0.01  0.01
+  1995  0.01  0.01  0.01  0.01  0.01
+\end{verbatim}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\begin{tabular}{ll}
+Author:	      & Bob Walton $<$walton@acm.org$>$ \\
+Date:         & Sat Jul 11 03:55:25 EDT 2020
+\end{tabular}
+
+The authors have placed this problem in the public domain;
+they make no warranty and accept no liability for this problem.
+
+\end{document}
+
